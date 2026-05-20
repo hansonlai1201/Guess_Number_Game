@@ -5,14 +5,19 @@ def is_leap_year(year):
         return False
 
 def check_leap_year():
-    try:
-        year = int(input("請輸入一個年份: "))
-        if is_leap_year(year):
-            print(f"{year} 是閏年！")
-        else:
-            print(f"{year} 不是閏年。")
-    except ValueError:
-        print("請輸入一個有效的年份！")
+    while True:
+        try:
+            year = int(input("請輸入一個年份: "))
+            if year < 1900 or year > 2100:
+                print("請輸入1900年至2100年之間的年份！")
+                continue
+            if is_leap_year(year):
+                print(f"{year} 是閏年！")
+            else:
+                print(f"{year} 不是閏年。")
+            break
+        except ValueError:
+            print("請輸入一個有效的年份！")
 
 if __name__ == "__main__":
     check_leap_year()
